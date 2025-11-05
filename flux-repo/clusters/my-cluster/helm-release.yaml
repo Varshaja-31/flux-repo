@@ -1,0 +1,13 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: my-app
+  namespace: default
+spec:
+  chart:
+    spec:
+      chart: ./apps/my-app/overlay
+      sourceRef:
+        kind: GitRepository
+        name: flux-repo
+  interval: 1m
